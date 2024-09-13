@@ -149,6 +149,11 @@ class AVFoundationVideoPlayer extends VideoPlayerPlatform {
     return _api.setMixWithOthers(mixWithOthers);
   }
 
+  @override
+  Future<void> setPreferredAudioLanguage(String? language) {
+    return _api.setPreferredAudioLanguage(language);
+  }
+
   EventChannel _eventChannelFor(int textureId) {
     return EventChannel('flutter.io/videoPlayer/videoEvents$textureId');
   }

@@ -19,6 +19,7 @@ class _ApiLogger implements TestHostVideoPlayerApi {
   double? volume;
   double? playbackSpeed;
   bool? mixWithOthers;
+  String? preferredAudioLanguag;
 
   @override
   int create(CreationOptions options) {
@@ -54,6 +55,12 @@ class _ApiLogger implements TestHostVideoPlayerApi {
   void setMixWithOthers(bool enabled) {
     log.add('setMixWithOthers');
     mixWithOthers = enabled;
+  }
+
+  @override
+  void setPreferredAudioLanguage(String? lang) {
+    log.add('setPreferredAudioLanguage');
+    preferredAudioLanguag = lang;
   }
 
   @override

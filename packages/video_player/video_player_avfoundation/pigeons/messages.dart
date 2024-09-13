@@ -31,6 +31,11 @@ class MixWithOthersMessage {
   bool mixWithOthers;
 }
 
+class PreferredAudioLanguageMessage {
+  PreferredAudioLanguageMessage({this.preferredAudioLanguage});
+  String? preferredAudioLanguage;
+}
+
 @HostApi(dartHostTestHandler: 'TestHostVideoPlayerApi')
 abstract class AVFoundationVideoPlayerApi {
   @ObjCSelector('initialize')
@@ -57,4 +62,6 @@ abstract class AVFoundationVideoPlayerApi {
   void pause(int textureId);
   @ObjCSelector('setMixWithOthers:')
   void setMixWithOthers(bool mixWithOthers);
+  @ObjCSelector('setPreferredAudioLanguage:')
+  void setPreferredAudioLanguage(String? lang);
 }

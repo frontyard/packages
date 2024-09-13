@@ -108,6 +108,7 @@ final class VideoPlayer implements TextureRegistry.SurfaceProducer.Callback {
     exoPlayer.setVideoSurface(surfaceProducer.getSurface());
     exoPlayer.addListener(new ExoPlayerEventListener(exoPlayer, videoPlayerEvents));
     setAudioAttributes(exoPlayer, options.mixWithOthers);
+    setPreferredAudioLanguage(exoPlayer, options.preferredAudioLanguage);
 
     return exoPlayer;
   }
@@ -120,6 +121,17 @@ final class VideoPlayer implements TextureRegistry.SurfaceProducer.Callback {
     exoPlayer.setAudioAttributes(
         new AudioAttributes.Builder().setContentType(C.AUDIO_CONTENT_TYPE_MOVIE).build(),
         !isMixMode);
+  }
+
+  private static void setPreferredAudioLanguage(ExoPlayer exoPlayer, String preferredAudioLanguage) {
+    if (preferredAudioLanguage != null) {
+      exoPlayer.setTrackSelectionParameters(
+          exoPlayer
+              .getTrackSelectionParameters()
+              .buildUpon()
+              .setPreferredAudioLanguage(preferredAudioLanguage)
+              .build());
+    }
   }
 
   void play() {

@@ -56,6 +56,11 @@ class MixWithOthersMessage {
   bool mixWithOthers;
 }
 
+class PreferredAudioLanguageMessage {
+  PreferredAudioLanguageMessage(this.preferredAudioLanguage);
+  String? preferredAudioLanguage;
+}
+
 @HostApi(dartHostTestHandler: 'TestHostVideoPlayerApi')
 abstract class AndroidVideoPlayerApi {
   void initialize();
@@ -69,4 +74,5 @@ abstract class AndroidVideoPlayerApi {
   void seekTo(PositionMessage msg);
   void pause(TextureMessage msg);
   void setMixWithOthers(MixWithOthersMessage msg);
+  void setPreferredAudioLanguage(PreferredAudioLanguageMessage msg);
 }

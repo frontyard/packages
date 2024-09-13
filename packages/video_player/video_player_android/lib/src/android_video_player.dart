@@ -166,6 +166,12 @@ class AndroidVideoPlayer extends VideoPlayerPlatform {
         .setMixWithOthers(MixWithOthersMessage(mixWithOthers: mixWithOthers));
   }
 
+  @override
+  Future<void> setPreferredAudioLanguage(String? language) {
+    return _api.setPreferredAudioLanguage(
+        PreferredAudioLanguageMessage(preferredAudioLanguage: language));
+  }
+
   EventChannel _eventChannelFor(int textureId) {
     return EventChannel('flutter.io/videoPlayer/videoEvents$textureId');
   }
