@@ -28,7 +28,8 @@ class SharedPreferences {
   static SharedPreferencesStorePlatform get _store =>
       SharedPreferencesStorePlatform.instance;
 
-  /// Sets the prefix that is attached to all keys for all shared preferences.
+  /// Sets the prefix that is attached to all keys for all shared preferences
+  /// read or written via this class.
   ///
   /// This changes the inputs when adding data to preferences as well as
   /// setting the filter that determines what data will be returned
@@ -42,6 +43,9 @@ class SharedPreferences {
   /// incompatible with shared_preferences. The optional parameter
   /// [allowList] will cause the plugin to only return preferences that
   /// are both contained in the list AND match the provided prefix.
+  ///
+  /// If [prefix] is changed, and an [allowList] is used, the prefix must be included
+  /// on the keys added to the [allowList].
   ///
   /// No migration of existing preferences is performed by this method.
   /// If you set a different prefix, and have previously stored preferences,
