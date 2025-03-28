@@ -224,8 +224,8 @@ public class VideoPlayerPlugin implements FlutterPlugin, AndroidVideoPlayerApi {
   }
 
   @Override
-  public void setPreferredAudioLanguage(@NonNull PreferredAudioLanguageMessage arg) {
-    options.preferredAudioLanguage = arg.getPreferredAudioLanguage();
+  public void setPreferredAudioLanguage(@NonNull String arg) {
+    options.preferredAudioLanguage = arg;
   }
 
   private interface KeyForAssetFn {

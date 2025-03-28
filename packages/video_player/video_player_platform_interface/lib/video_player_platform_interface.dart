@@ -121,6 +121,12 @@ abstract class VideoPlayerPlatform extends PlatformInterface {
   Future<void> setWebOptions(int playerId, VideoPlayerWebOptions options) {
     throw UnimplementedError('setWebOptions() has not been implemented.');
   }
+
+  /// Sets preferred audio langauge
+  Future<void> setPreferredAudioLanguage(String? preferredAudioLanguage) {
+    // Fail silently for platforms that don't support this yet.
+    return Future<void>(() {});
+  }
 }
 
 class _PlaceholderImplementation extends VideoPlayerPlatform {}
